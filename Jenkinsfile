@@ -10,11 +10,11 @@ pipeline {
                  '''
              }
          }
-            stage('Lint HTML') {
-                steps {
-                    sh 'ls -l && lsb_release -a && clang-tidy -q -e *.html'
-                }
-            }
+            // stage('Lint HTML') {
+            //     steps {
+            //         sh 'ls -l && lsb_release -a && clang-tidy -q -e *.html'
+            //     }
+            // }
             stage('Security Scan') {
                 steps { 
                     aquaMicroscanner imageName: 'alpine:latest', notCompleted: 'exit 1', onDisallowed: 'fail'
