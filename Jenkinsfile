@@ -12,7 +12,7 @@ pipeline {
          }
          stage('Lint HTML') {
               steps {
-                  sh 'tidy -q -e *.html'
+                  sh 'ls -l && sudo apt update && sudo apt install tidy && tidy -q -e *.html'
               }
          }
          stage('Security Scan') {
