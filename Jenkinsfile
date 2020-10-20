@@ -10,10 +10,9 @@ pipeline {
                  '''
              }
          }
-           docker.image('node').inside {
             stage('Lint HTML') {
                 steps {
-                    sh 'ls -l &&  apt-get update &&  apt-get install tidy && tidy -q -e *.html'
+                    sh 'ls -l && lsb_release -a && clang-tidy -q -e *.html'
                 }
             }
             stage('Security Scan') {
@@ -29,6 +28,5 @@ pipeline {
                     }
                 }
             }
-         }
      }
 }
